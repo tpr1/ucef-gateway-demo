@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:copy \
+-Dartifact=org.cpswt:fedmanager-host:0.5.0-SNAPSHOT \
+-DoutputDirectory=./lib \
+-DoverWriteIfNewer=true \
+-Dmdep.useBaseVersion=true
+
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:copy-dependencies \
+-Dartifact=org.cpswt:fedmanager-host:0.5.0-SNAPSHOT \
+-DoutputDirectory=./lib \
+-DoverWriteIfNewer=true \
+-Dmdep.useBaseVersion=true
+
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:copy \
+-Dartifact=gov.nist.hla:gateway-injection:0.0.1-SNAPSHOT:jar \
+-DoutputDirectory=. \
+-DoverWriteIfNewer=true \
+-Dmdep.useBaseVersion=true
+
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:copy \
+-Dartifact=org.webgme.guest:TripleSend:0.1.0-SNAPSHOT:jar \
+-DoutputDirectory=. \
+-DoverWriteIfNewer=true \
+-Dmdep.useBaseVersion=true
+
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:copy \
+-Dartifact=org.webgme.guest:TripleReceive:0.1.0-SNAPSHOT:jar \
+-DoutputDirectory=. \
+-DoverWriteIfNewer=true \
+-Dmdep.useBaseVersion=true
+
+DIR=`pwd`
+
+RTI_FILE="$DIR/RTI.rid"
+LOG4J="-Dlog4j.configurationFile=$DIR/conf/log4j2.xml"
+IPV4="-Djava.net.preferIPv4Stack=true"
+logtofile="-l "
+
+echo "DIR=$DIR"
+java -cp "./*" org.cpswt.host.FederationManagerHostApp
+#xterm -hold -T "Federation Manager" -l -e "java org.cpswt.host.FederationManagerHostApp" &
+
+#sleep 30
+
+#xterm -hold -T "Gateway Injection" $logtofile -e "java $LOG4J $IPV4 -jar gateway-injection-0.0.1-SNAPSHOT.jar" &
+
+#xterm -hold -T "Triple Send" $logtofile -e "java $LOG4J $IPV4 -jar TripleSend-0.1.0-SNAPSHOT.jar" &
+
+#xterm -hold -T "Triple Receive" $logtofile -e "java $LOG4J $IPV4 -jar TripleReceive-0.1.0-SNAPSHOT.jar" &
+
+
+
