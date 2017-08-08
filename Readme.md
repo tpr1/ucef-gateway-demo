@@ -35,7 +35,7 @@ Contains two federates
     - https://github.com/usnistgov/ucef-gateway.git
 
   - ### Navigate to: `cpswt-core/fedmanager-exec`  
-  - $ mvn install
+  - $ ./build.sh` // Should yield success
   - $ cd target
   - $ ./run3.sh
 
