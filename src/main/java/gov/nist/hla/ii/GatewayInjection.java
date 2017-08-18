@@ -22,33 +22,38 @@ public class GatewayInjection extends InterObjInjectionImpl {
 		super();
 		this.federate = federate;
 	}
-	
+
 	@Override
 	public Queue<InterObjDef> getPreSynchInteractions() {
 		// TODO Auto-generated method stub
-		return null;
+		return publications;
 	}
 
 	@Override
 	public Queue<InterObjDef> getPublications(Double logicalTime) {
 		log.trace("getInteractions==>");
 
-		try {
-			// We define all interactions and objects we intend to inject. These
-			// must match what is in the FOM file.
-			// Names must be formatted correctly.
-			String interactionName = federate.formatInteractionName("Int1");
-			addInteraction(interactionName, new HashMap<String, String>());
+			try {
+				// We define all interactions and objects we intend to inject.
+				// These
+				// must match what is in the FOM file.
+				// Names must be formatted correctly.
+				String interactionName = federate.formatInteractionName("Int1");
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("boolVal", "false");
+				params.put("intVal", "987654");
+				params.put("strVal", String.format("%s@%f", "YYY", logicalTime));
+				addInteraction(interactionName, params);
 
-			// Names must be formatted correctly.
-			String className = federate.formatObjectName("Obj1");
-			Map<String, String> attrMap = new HashMap<String, String>();
-			attrMap.put("Obj1Attr3", "XXX");
-			addObject(className, attrMap);
+				// Names must be formatted correctly.
+				String className = federate.formatObjectName("Obj1");
+				Map<String, String> attrMap = new HashMap<String, String>();
+				attrMap.put("Obj1Attr3", String.format("%s@%f", "XXX", logicalTime));
+				addObject(className, attrMap);
 
-		} catch (NameNotFound | FederateNotExecutionMember | RTIinternalError | ObjectNotKnown e) {
-			log.error(e);
-		}
+			} catch (NameNotFound | FederateNotExecutionMember | RTIinternalError | ObjectNotKnown e) {
+				log.error(e);
+			}
 		return publications;
 	}
 }

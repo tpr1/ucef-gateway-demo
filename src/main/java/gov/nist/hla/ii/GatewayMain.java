@@ -17,11 +17,15 @@ public class GatewayMain {
 		try {
 			InjectionFederate app = new InjectionFederate();
 			app.loadConfiguration(args[0]);
-			app.init();
+			
+			// Set the injection and reception here.
 			GatewayInjection inj = new GatewayInjection(app);
 			app.setInterObjectInjection(inj);
 			GatewayReception recp = new GatewayReception();
 			app.setInterObjectReception(recp);
+			GatewayHook hook = new GatewayHook();
+			app.setTimeStepHook(hook);
+			app.init();
 			app.run();
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);

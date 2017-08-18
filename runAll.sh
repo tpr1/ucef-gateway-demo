@@ -19,17 +19,17 @@ mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:copy \
 -Dmdep.useBaseVersion=true
 
 RTI_FILE="RTI.rid"
-LOG4J="-Dlog4j.configurationFile=conf/log4j2.xml"
-IPV4="-Djava.net.preferIPv4Stack=true"
+LOG4J="log4j.configurationFile=conf/log4j2.xml"
+IPV4="java.net.preferIPv4Stack=true"
 logtofile="-l "
 
-#xterm -hold -T "Federation Manager" -l -e \
-#"java \
-#-D$IPV4 \
-#-Dorg.apache.logging.log4j.simplelog.StatusLogger.level=TRACE \
-#-D$LOG4J \
-#-jar fedmanager-exec-0.5.0-SNAPSHOT.jar \
-#-configFile conf/fedmgrconfig.json" &
+xterm -hold -T "Federation Manager" -l -e \
+"java \
+-D$IPV4 \
+-Dorg.apache.logging.log4j.simplelog.StatusLogger.level=TRACE \
+-D$LOG4J \
+-jar fedmanager-exec-0.5.0-SNAPSHOT.jar \
+-configFile conf/fedmgrconfig.json" &
 
 sleep 30
 
