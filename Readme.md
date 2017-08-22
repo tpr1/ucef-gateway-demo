@@ -1,14 +1,25 @@
 # Gateway Demo
 Demonstrates the use of the UCEF Gateway injection federate.
 Requires TripleSend and TripleReceive federates.  
-gateway-demo injects an interaction and an object at each time step while the federation runs.  It also receives and prints to the console all interaction and object sent by other federates.  
+ucef-gateway-demo injects an interaction and an object at each time step while the federation runs.  It also receives and prints to the console all interactions and objects sent by other federates.  It prints a message at every hook point.
 
-gateway-demo consists of three classes.  These are implemented by the user.
+ucef-gateway-demo consists of four classes.  These are implemented by the user.
   1. GatewayMain  
-  With this the user configures the federate and sets the Injection and Reception federates.
+  With this, the user configures the federate and sets the Injection, Reception and Hook federates.
 
   2. GatewayInjection
+  The user implements this class to send interactions.
+
   3. GatewayReception
+  The gateway subscribes to all interactions.  The user dispositions these interactions by implementing this class.  
+
+  4. GatewayHook
+  Enables the user to execute fuctionality at key points during the processing life cycle.  
+
+     Key points:  
+     a. Before and after ready-to-populate  
+     b. Before and after ready-to-run  
+     c. Before and after each time step  
 
 ### Dependencies:
 
@@ -26,6 +37,27 @@ Contains two federates
   TripleSend creates two interactions and three objects, populates them, then sends them into the federation.  
 
   TripleReceive receives and prints to the console the interactions and objects sent both by TripleSend and gateway-demo.
+
+### Prerequisites
+The UCEF Gateway cannot send interactios that are not designed by WebGME.  The gateway must have a complete set of the interactions in the form of a FOM (Federation Object Model) file.  A FOM is generated for any federate designed with WebGME.  The location of the FOM file is specified in a file called config.properties.
+
+### Configuration
+Configuration is a properties file that must be located in the src/main/resources directory of the Implementation Project.  Usage is commented therein.  
+
+#### Name of the class that has the main function.
+federate-name=GatewayMain
+
+#### Name of the federatian being joined.Usually the name being used by the federationa manager.
+federation=FedManager
+
+#### Path to the FOM file.
+fom-file=fom/TripleFederation.xml
+
+#### As per the HLA specification defaults to 0.1
+lookahead=0.1
+
+#### As per the HLA specification defaults to 1.0
+stepsize=1.0
 
 ## To run the Triple federation:
 
