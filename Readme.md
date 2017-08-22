@@ -61,33 +61,32 @@ stepsize=1.0
 
 ## To run the Triple federation:
 
-  - ### Checkout:
+  1. Checkout:
     - https://github.com/usnistgov/ucef-core.git
     - https://github.com/gcr-nist/TripleFederation_generated.git
     - https://github.com/usnistgov/ucef-gateway.git
 
-  - ### Navigate to: `cpswt-core/fedmanager-exec`  
-  - $ ./build.sh` // Should yield success
-  - $ cd target
-  - $ ./run3.sh
+  2. Navigate to: `cpswt-core/fedmanager-exec`  
+  3. $ ./build.sh` // Should yield success
+  4. $ cd target
+  5. $ ./run3.sh
 
-  - ### Navigate to: `TripleFederation_generated`
-  - $`mvn install`  // Should yield success
+  6. Navigate to: `TripleFederation_generated`
+  7. $`mvn install`  // Should yield success
 
-  - ### Navigate to: `TripleFederation_generated/TripleFederation-java-federates/TripleFederation-impl-java/TripleSend`  
-  - $`./build.sh` // Should yield success
-  - $ `cd target/`
-  - $ `./run.sh` 
-
-
-  - ### Navigate to: `TripleFederation_generated/TripleFederation-java-federates/TripleFederation-impl-java/TripleReceive`  
-  - $ `./build.sh` // Should yield success
-  - $ `cd target/`
-  - $ `./run.sh`
+  8. Navigate to: `TripleFederation_generated/TripleFederation-java-federates/TripleFederation-impl-java/TripleSend`  
+  9. $`./build.sh` // Should yield success
+  10. $ `cd target/`
+  11. $ `./run.sh` 
 
 
-  - ### Navigate to: `gateway-demo`  
-  - `$./build.sh` // Should yield success
-  - `cd target/`
-  - `$ ./run.sh` 
+  12. Navigate to: `TripleFederation_generated/TripleFederation-java-federates/TripleFederation-impl-java/TripleReceive`  
+  13. $ `./build.sh` // Should yield success
+  14 $ `cd target/`
+  15. $ `./run.sh`
 
+
+  16. Navigate to: `gateway-demo`  
+  17. `$./build.sh` // Should yield success
+  18. `cd target/`
+  19. `$ ./run.sh` 
