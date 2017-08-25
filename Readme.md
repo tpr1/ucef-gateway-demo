@@ -39,7 +39,7 @@ Contains two federates
   TripleReceive receives and prints to the console the interactions and objects sent both by TripleSend and gateway-demo.
 
 ### Prerequisites
-The UCEF Gateway cannot send interactios that are not designed by WebGME.  The gateway must have a complete set of the interactions in the form of a FOM (Federation Object Model) file.  A FOM is generated for any federate designed with WebGME.  The location of the FOM file is specified in a file called config.properties.
+The UCEF Gateway cannot send interactions that are not designed by WebGME.  The gateway must have a complete set of the interactions in the form of a FOM (Federation Object Model) file.  A FOM is generated for any federate designed with WebGME.  The location of the FOM file is specified in a file called config.properties.
 
 ### Configuration
 Configuration is a properties file that must be located in the src/main/resources directory of the Implementation Project.  Usage is commented therein.  
@@ -59,34 +59,11 @@ lookahead=0.1
 #### As per the HLA specification defaults to 1.0
 stepsize=1.0
 
+# Run 
+
+The demo is built as an uber project.  It contains all its dependencies and a proper set configuration files.  These are in the run directory.
+
 ## To run the Triple federation:
 
-  1. Checkout:
-    - https://github.com/usnistgov/ucef-core.git
-    - https://github.com/gcr-nist/TripleFederation_generated.git
-    - https://github.com/usnistgov/ucef-gateway.git
-
-  2. Navigate to: `cpswt-core/fedmanager-exec`  
-  3. $ ./build.sh` // Should yield success
-  4. $ cd target
-  5. $ ./run3.sh
-
-  6. Navigate to: `TripleFederation_generated`
-  7. $`mvn install`  // Should yield success
-
-  8. Navigate to: `TripleFederation_generated/TripleFederation-java-federates/TripleFederation-impl-java/TripleSend`  
-  9. $`./build.sh` // Should yield success
-  10. $ `cd target/`
-  11. $ `./run.sh` 
-
-
-  12. Navigate to: `TripleFederation_generated/TripleFederation-java-federates/TripleFederation-impl-java/TripleReceive`  
-  13. $ `./build.sh` // Should yield success
-  14 $ `cd target/`
-  15. $ `./run.sh`
-
-
-  16. Navigate to: `gateway-demo`  
-  17. `$./build.sh` // Should yield success
-  18. `cd target/`
-  19. `$ ./run.sh` 
+  1. `cd run/`
+  2. ./runAll.sh 
