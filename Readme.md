@@ -65,5 +65,6 @@ The demo is built as an uber project.  It contains all its dependencies and a pr
 
 ## To run the Triple federation:
 
-  1. `cd run/`
-  2. ./runAll.sh 
+  1. `git clone https://github.com/usnistgov/ucef-gateway-demo.git`
+  1. `cd ucef-gateway-demo/run/`
+  1. `./runAll.sh` 
