@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 . ./env.sh
+export RTI_FILE="RTI.rid"
+LOG4J="log4j.configurationFile=conf/log4j2.xml"
+IPV4="java.net.preferIPv4Stack=true"
 logtofile="-l "
 
 cd "$FEDMANAGER_HOME/target"
