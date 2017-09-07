@@ -1,0 +1,26 @@
+{
+  "federateTypesAllowed": [
+    "TripleReceive",
+    "TripleSend"
+  ],
+  "expectedFederates": [
+    {
+      "federateType": "TripleReceive",
+      "count": 1
+    },
+    {
+      "federateType": "TripleSend",
+      "count": 1
+    }
+  ],
+  "lateJoinerFederates": [
+    {
+      "federateType": "TripleReceive",
+      "count": 0
+    },
+    {
+      "federateType": "TripleSend",
+      "count": 0
+    }
+  ]
+}

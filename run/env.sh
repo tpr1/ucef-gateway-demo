@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-cd ../../
 export CURR_DIR=`pwd`
-export FEDMANAGER_HOME="$CURR_DIR/ucef-core/cpswt-core/fedmanager-exec"
-export DEMO_HOME="$CURR_DIR/ucef-gateway-demo"
-export GATEWAY_HOME="$CURR_DIR/ucef-gateway"
-export TRIPLE_HOME="$CURR_DIR/TripleFederation_generated"
-export TRIPLESEND_HOME="$CURR_DIR/TripleFederation_generated/TripleFederation-java-federates/TripleFederation-impl-java/TripleSend"
-export TRIPLEREC_HOME="$CURR_DIR/TripleFederation_generated/TripleFederation-java-federates/TripleFederation-impl-java/TripleReceive"
-export RTI_FILE="RTI.rid"
-export LOG4J="log4j.configurationFile=conf/log4j2.xml"
+export SRC_DIR="$CURR_DIR/../src"
+export FEDMANAGER_HOME="$SRC_DIR/fedmanager"
+export DEMO_HOME="$SRC_DIR/ucef-gateway-demo"
+export TRIPLE_HOME="$SRC_DIR/TripleFederation_generated"
+export TRIPLESEND_HOME="$SRC_DIR/TripleFederation_generated/TripleFederation-java-federates/TripleFederation-impl-java/TripleSend"
+export TRIPLEREC_HOME="$SRC_DIR/TripleFederation_generated/TripleFederation-java-federates/TripleFederation-impl-java/TripleReceive"
+export RTI_FILE="../RTI.rid"
+export LOG4J="log4j.configurationFile=../conf/log4j2.xml"
 export IPV4="java.net.preferIPv4Stack=true"
 

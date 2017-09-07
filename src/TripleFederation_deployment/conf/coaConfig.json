@@ -1,0 +1,15 @@
+{
+  "script": {
+    "expect": [
+      {
+        "federateType": "TripleReceive"
+      },
+      {
+        "federateType": "TripleSend"
+      }
+    ],
+    "pauses": [],
+    "coaNodes": [],
+    "coaEdges": []
+  }
+}

@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
 
 . ./env.sh
-cd $FEDMANAGER_HOME
-echo `pwd`
-./build.sh
+DIR=`pwd`
+cd ../
+echo "$DIR"
+rm -fR $FEDMANAGER_HOME/target
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:copy \
+-Dartifact=org.cpswt:fedmanager-host:0.6.0-SNAPSHOT \
+-DoutputDirectory=$FEDMANAGER_HOME/target \
+-DoverWriteIfNewer=true \
+-Dmdep.useBaseVersion=true
 cd "$TRIPLE_HOME"
-./build.sh
-cd "$TRIPLESEND_HOME"
-./build.sh
-cd "$TRIPLEREC_HOME"
-./build.sh
-cd "$GATEWAY_HOME"
-./build.sh
+mvn clean install
 cd "$DEMO_HOME"
-./build.sh
+mvn clean install
+cd "$DIR"
 
