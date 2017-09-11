@@ -54,8 +54,10 @@ public class TripleSend extends TripleSendBase {
         putAdvanceTimeRequest(atr);
 
         if(!super.isLateJoiner()) {
+           	log.trace("readyToPopulate==>");
             readyToPopulate();
-        }
+        	log.trace("<==readyToPopulate");
+       }
 
         ///////////////////////////////////////////////////////////////////////
         // Call CheckReceivedSubscriptions(<message>) here to receive
@@ -67,8 +69,10 @@ public class TripleSend extends TripleSendBase {
         ///////////////////////////////////////////////////////////////////////
 
         if(!super.isLateJoiner()) {
+        	log.trace("readyToRun==>");
             readyToRun();
-        }
+        	log.trace("<==readyToRun");
+       }
 
         startAdvanceTimeThread();
 
