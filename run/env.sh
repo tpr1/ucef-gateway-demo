@@ -10,4 +10,4 @@ export TRIPLEREC_HOME="$SRC_DIR/TripleFederation_generated/TripleFederation-java
 export RTI_FILE="conf/RTI.rid"
 export LOG4J="log4j.configurationFile=conf/log4j2.xml"
 export IPV4="java.net.preferIPv4Stack=true"
-export CONFIG_FILE="$DEMO_HOME/target/conf/config.properties"
+export CONFIG_FILE="$DEMO_HOME/target/conf/config.json"
