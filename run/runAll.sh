@@ -4,17 +4,17 @@
 printf "\ec"
 
 cd "$FEDMANAGER_HOME/target"
-#echo `pwd`
-#XTERM_LOG=xterm-fedmanager.log
-#rm -f $XTERM_LOG
-#xterm -hold -fg white -bg black -l -lf $XTERM_LOG -T "Federation Manager" -geometry 80x20+0+0 \
-#-e "java \
-#-D$IPV4 \
-#-D$LOG4J \
-#-jar fedmanager-host-0.6.0-SNAPSHOT.jar \
-#-configFile conf/fedmgrconfig.json" &
+echo `pwd`
+XTERM_LOG=xterm-fedmanager.log
+rm -f $XTERM_LOG
+xterm -hold -fg white -bg black -l -lf $XTERM_LOG -T "Federation Manager" -geometry 80x20+0+0 \
+-e "java \
+-D$IPV4 \
+-D$LOG4J \
+-jar fedmanager-host-0.6.0-SNAPSHOT.jar \
+-configFile conf/fedmgrconfig.json" &
 
-#sleep 20
+sleep 15
 $CURR_DIR/curl_start
 
 cd "$TRIPLESEND_HOME/target"
