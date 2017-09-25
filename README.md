@@ -25,24 +25,19 @@ ucef-gateway-demo consists of four classes.  These are implemented by the user.
 
 [UCEF Core](https://github.com/usnistgov/ucef-core.git)  
 Contains the Federate Manager.  
+Must be installed prior to building the ucef-gateway-demo.
+$> mvn install
 
 [UCEF Gateway](https://github.com/usnistgov/ucef-gateway.git)  
 Contains the execution part of federate injection.
-
-[Triple Federation](https://github.com/gcr-nist/TripleFederation_generated.git)  
-Contains two federates  
-  1. TripleSend and  
-  2. TripleReceive  
-
-  TripleSend creates two interactions and three objects, populates them, then sends them into the federation.  
-
-  TripleReceive receives and prints to the console the interactions and objects sent both by TripleSend and gateway-demo.
+Must be installed prior to building the ucef-gateway-demo.
+$> mvn install
 
 ### Prerequisites
-The UCEF Gateway cannot send interactions that are not designed by WebGME.  The gateway must have a complete set of the interactions in the form of a FOM (Federation Object Model) file.  A FOM is generated for any federate designed with WebGME.  The location of the FOM file is specified in a file called config.properties.
+The UCEF Gateway cannot send interactions that are not designed by WebGME.  The gateway must have a complete set of the interactions in the form of a FOM (Federation Object Model) file.  A FOM is generated for any federate designed with WebGME.  The location of the FOM file is specified in a file called config.json.
 
 ### Configuration
-Configuration is a properties file that must be located in the src/main/resources directory of the Implementation Project.  Usage is commented therein.  
+Configuration is in config.json located in the conf/ directory of the Implementation Project. 
 
 #### Name of the class that has the main function.
 federate-name=GatewayMain
@@ -68,5 +63,6 @@ The demo is built as an uber project.  It contains all its dependencies and a pr
   1. `git clone https://github.com/usnistgov/ucef-gateway-demo.git`
   1. `cd ucef-gateway-demo/run/`
   1. `./cloneAll.sh
+  1. Navigate to ucef-core/cpswt-core and ucef-gateway projects respectively and install them. 
   1. `./buildAll.sh
   1. `./runAll.sh` 
